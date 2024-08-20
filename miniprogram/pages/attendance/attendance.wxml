@@ -1,0 +1,31 @@
+<view class="page-history">
+    <view class="title">您可参与的签到：</view>
+    <view class="signable">
+        <block wx:for="{{items1}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+            <view class="history" data-id="{{item._id}}">
+                <view class="name">{{idx+1}}: ({{item.attendanceTime}}的签到){{item.attendanceId}}<button bindtap="sign" data-name="{{item.attendanceId}}"  type="default">点我签到</button> </view>
+            </view>       
+        </block>
+    </view>
+    <view class="title">您未完成的签到：</view>
+    <view class="signnoable">
+        <block wx:for="{{items2}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+            <view class="history" data-id="{{item._id}}">
+
+                <view class="name">{{idx+1}}: ({{item.attendanceTime}}的签到){{item.attendanceId}} 签到未完成 </view>
+            </view>       
+        </block>
+    </view>
+    <view class="title">您签到过的记录：</view>
+    <view class="signs">
+        <block wx:for="{{items3}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+            <view class="history" data-id="{{item._id}}">
+                <view class="sortnum">{{idx+1}}</view>
+                <view class="name"> ({{item.attendanceTime}}的签到){{item.attendanceId}} 签到已完成 </view>
+            </view>       
+        </block>
+    </view>
+    <view class="adContainer">
+        <ad unit-id="adunit-8f925e8e1afdc0f6" ad-type="video" ad-theme="white"></ad>
+    </view>
+</view>

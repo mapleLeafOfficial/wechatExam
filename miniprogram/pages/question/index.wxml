@@ -1,0 +1,37 @@
+<wxs src="./../tools.wxs" module="JSON" />
+<view class="page-question">
+    <view class="questions">
+    <block wx:for="{{questions}}" wx:key="id" wx:for-index="idx" wx:for-item="question">
+    <view class="question-container">
+<block wx:if="{{question.quType == 2}}">
+    <view class="question">
+        <view class="title">(多选题){{idx+1}}，{{question.content}}</view>
+    </view>
+    <view class="options">
+        <!-- 判断题型是否为多选题 -->
+        <checkbox-group class="checkbox-group" bindchange="checkboxChange">
+            <label class="checkbox" wx:for="{{question.answerList}}" wx:key="code">
+                <checkbox value="{{idx+'|'+JSON.stringify(item)+'|'+JSON.stringify(question)}}"/>{{item.abc}}：{{item.content}}
+            </label>
+        </checkbox-group>
+    </view>
+</block>
+<block wx:else>
+    <view class="question">
+        <view class="title">(单选题){{idx+1}}，{{question.content}}</view>
+    </view>
+    <view class="options">
+            <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{question.answerList}}" wx:key="code">
+                <radio value="{{idx+'|'+JSON.stringify(item)+'|'+JSON.stringify(question)}}"/>{{item.abc}}：{{item.content}}
+            </label>
+            </radio-group>
+        </view>
+</block>
+</view>
+    </block>
+    </view>
+    <view class="btn-area">
+        <button hidden="{{hiddenbtn}}" type="primary" bindtap="bindSubmitTap">确认提交</button>
+    </view>                                  
+</view>

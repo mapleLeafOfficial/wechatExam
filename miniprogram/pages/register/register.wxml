@@ -1,0 +1,31 @@
+<view class="v1">
+ 
+ <!-- v2父容器  子view使用绝对布局 -->
+   <view class="v2" style="position: relative; left: 103rpx; top: -2rpx">
+     <view class="dltext">注册</view>
+     <!-- 手机号 -->
+     <view class="phoneCs">
+       <image src="/icons/account.png" class="ph"></image>
+       <input placeholder="请输入账号" bindinput="bindAccountInput" />
+     </view>
+  
+     <!-- 密码 -->
+     <view class=passwordCs" style="position: absolute; left: 0rpx; top: -66rpx">
+       <image src="/icons/password.png" class="ps"></image>
+       <input placeholder="请输入密码" bindinput="bindPasswordInput" />
+     </view>
+     <!-- 登录按钮 -->
+     <view class="denglu" >
+       <button class="btn-dl" bindtap="register" disabled="{{disabled}}" type="primary" style="position: relative; left: 0rpx; top: -50rpx">注册</button>
+     </view>
+  
+     <!-- 协议区  xieyi -->
+     <view class="xieyi">
+     <checkbox-group  bindchange="checkboxChange">
+       <checkbox class="isXY" style="width: 54rpx; height: 54rpx; display: block; box-sizing: border-box; left: 4rpx"  checked="{{checked}}" ></checkbox></checkbox-group>
+       <view class="text-xy" style="width: 216rpx; height: 54rpx; display: block; box-sizing: border-box; position: relative; left: 6rpx; top: -10rpx">同意小程序的《使用协议》</view>
+     </view>
+   </view>  
+ <!-- 提示框  使用以下方式登录 -->  
+ </view>
+
